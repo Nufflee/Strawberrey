@@ -1,0 +1,6 @@
+F:\PROJECTS\CSharp\Strawberrey\src\Strawberrey.CLI\bin\Debug\Strawberrey.CLI.exe
+F:\PROJECTS\CSharp\Strawberrey\src\Strawberrey.CLI\bin\Debug\Strawberrey.CLI.pdb
+F:\PROJECTS\CSharp\Strawberrey\src\Strawberrey.CLI\obj\Debug\Strawberrey.CLI.csprojResolveAssemblyReference.cache
+F:\PROJECTS\CSharp\Strawberrey\src\Strawberrey.CLI\obj\Debug\Strawberrey.CLI.csproj.CoreCompileInputs.cache
+F:\PROJECTS\CSharp\Strawberrey\src\Strawberrey.CLI\obj\Debug\Strawberrey.CLI.exe
+F:\PROJECTS\CSharp\Strawberrey\src\Strawberrey.CLI\obj\Debug\Strawberrey.CLI.pdb
