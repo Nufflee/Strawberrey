@@ -12,6 +12,7 @@
 /.idea*/
 bin/
 obj/
+packages/
 
 # ============ #
 # OS generated #
