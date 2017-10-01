@@ -10,7 +10,9 @@
 /*.sln*
 /*.userj
 /.idea*/
- 
+bin/
+obj/
+
 # ============ #
 # OS generated #
 # ============ #

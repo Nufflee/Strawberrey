@@ -1,8 +1,0 @@
-F:\PROJECTS\CSharp\Strawberrey\src\Strawberrey.CLI\bin\Release\Strawberrey.CLI.exe
-F:\PROJECTS\CSharp\Strawberrey\src\Strawberrey.CLI\bin\Release\Strawberrey.CLI.pdb
-F:\PROJECTS\CSharp\Strawberrey\src\Strawberrey.CLI\bin\Release\Newtonsoft.Json.dll
-F:\PROJECTS\CSharp\Strawberrey\src\Strawberrey.CLI\bin\Release\Newtonsoft.Json.xml
-F:\PROJECTS\CSharp\Strawberrey\src\Strawberrey.CLI\obj\Release\Strawberrey.CLI.csprojResolveAssemblyReference.cache
-F:\PROJECTS\CSharp\Strawberrey\src\Strawberrey.CLI\obj\Release\Strawberrey.CLI.csproj.CoreCompileInputs.cache
-F:\PROJECTS\CSharp\Strawberrey\src\Strawberrey.CLI\obj\Release\Strawberrey.CLI.exe
-F:\PROJECTS\CSharp\Strawberrey\src\Strawberrey.CLI\obj\Release\Strawberrey.CLI.pdb
