@@ -1,6 +1,4 @@
-﻿using System;
-using System.Data;
-using System.Linq;
+﻿using System.Threading.Tasks;
 
 namespace Strawberrey.CLI
 {
@@ -8,21 +6,13 @@ namespace Strawberrey.CLI
   {
     private static void Main(string[] args)
     {
-#if DEBUG
-      if (args.Length == 0)
-      {
-        while (true)
-        {
-          string input = Console.ReadLine();
-          string[] inputArgs = input.Split(' ').Skip(1).ToArray();
+      MainAsync(args).Wait();
+    }
 
-          //if (!string.IsNullOrWhiteSpace(input))
-          {
-            new Parser().Parse(input, inputArgs);
-          }
-        }
-      }
-#endif
+    private static async Task MainAsync(string[] args)
+    {
+      Bootstrap.Init();
+      await Bootstrap.StartUp(args);
     }
   }
 }
