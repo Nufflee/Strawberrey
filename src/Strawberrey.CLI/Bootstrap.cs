@@ -9,7 +9,7 @@ namespace Strawberrey.CLI
   {
     private static Configuration configuration;
 
-    public static async void Init()
+    public static void Init()
     {
     }
 

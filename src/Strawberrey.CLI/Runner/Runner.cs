@@ -1,7 +1,4 @@
-﻿using System;
-using System.Linq;
-
-namespace Strawberrey.CLI
+﻿namespace Strawberrey.CLI
 {
   public class Runner
   {
@@ -24,14 +21,14 @@ namespace Strawberrey.CLI
         while (true)
         {
           string input = Console.ReadLine();
-          string[] inputArgs = input.Split(' ').Where(s => !string.IsNullOrWhiteSpace(s)).Skip(1).ToArray();
+          string[] inputArgs = input.Split(' ').Where(s => !string.IsNullOrWhiteSpace(s)).ToArray();
 
-
-          parser.Parse(inputArgs);
+          parser.Parse(new CommandArgs(inputArgs));
         }
       }
+#else
+      parser.Parse(new CommandArgs(args));
 #endif
-      parser.Parse(args);
     }
   }
 }
