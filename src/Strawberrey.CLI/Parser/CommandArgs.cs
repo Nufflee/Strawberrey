@@ -1,4 +1,6 @@
-﻿namespace Strawberrey.CLI
+﻿using System.Linq;
+
+namespace Strawberrey.CLI
 {
   public class CommandArgs
   {
@@ -12,7 +14,7 @@
     {
 #if DEBUG
       this.rawArgs = rawArgs.Skip(1).ToArray();
-      #else
+#else
       this.rawArgs = rawArgs;
 #endif
     }

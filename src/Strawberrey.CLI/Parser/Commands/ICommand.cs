@@ -2,6 +2,6 @@
 {
   public interface ICommand
   {
-    void Run(CommandArgs args, Runner configuration);
+    void Run(CommandArgs args, Runner runner);
   }
 }

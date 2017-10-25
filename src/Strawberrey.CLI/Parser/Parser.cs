@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Reflection;
 
@@ -9,7 +10,7 @@ namespace Strawberrey.CLI
   {
     private readonly Runner runner;
 
-    public Dictionary<string, Type> commandTypes;
+    private readonly Dictionary<string, Type> commandTypes;
 
     public Parser(Runner runner)
     {
@@ -19,42 +20,44 @@ namespace Strawberrey.CLI
 
     public void Parse(CommandArgs args)
     {
+      ICommand command;
+
       if (args.Length == 0)
       {
-        Console.WriteLine($"Strawberrey {runner.Configuration.Version}");
+        command = CreateCommand(typeof(InfoCommand));
         return;
       }
 
-      ICommand command = GetCommand(args[0]);
+      command = GetCommand(args[0]);
 
       command?.Run(args, runner);
     }
 
     private ICommand GetCommand(string name)
     {
-      KeyValuePair<string, Type> first = new KeyValuePair<string, Type>();
-      foreach (KeyValuePair<string, Type> t in commandTypes)
-      {
-        if (t.Key.SubstringTill(0, t.Key.IndexOf("Command", StringComparison.Ordinal) - 1).ToLower() == name)
-        {
-          first = t;
-          break;
-        }
-      }
-      return (ICommand) Activator.CreateInstance(first.Value);
+      return CreateCommand(commandTypes.FirstOrDefault(t => t.Key.SubstringTill(0, t.Key.IndexOf("Command", StringComparison.Ordinal) - 1).ToLower() == name).Value);
     }
 
-    private Dictionary<string, Type> LoadCommandTypes()
+    private ICommand CreateCommand(Type type)
     {
-      Dictionary<string, Type> result = new Dictionary<string, Type>();
+      Debug.Assert(type != null);
+      Debug.Assert(type.Implements(typeof(ICommand)));
+      Debug.Assert(commandTypes.ContainsValue(type));
+
+      return (ICommand) Activator.CreateInstance(type);
+    }
+
+    private static Dictionary<string, Type> LoadCommandTypes()
+    {
+      Dictionary<string, Type> results = new Dictionary<string, Type>();
       List<Type> types = Assembly.GetExecutingAssembly().GetTypes().Where(t => t.GetInterfaces().Contains(typeof(ICommand))).ToList();
 
       foreach (Type type in types)
       {
-        result.Add(type.Name, type);
+        results.Add(type.Name, type);
       }
 
-      return result;
+      return results;
     }
   }
 }

@@ -46,6 +46,7 @@
     <Compile Include="Configuration.cs" />
     <Compile Include="Parser\CommandArgs.cs" />
     <Compile Include="Parser\Commands\ICommand.cs" />
+    <Compile Include="Parser\Commands\InfoCommand.cs" />
     <Compile Include="Parser\Commands\Test2Command.cs" />
     <Compile Include="Parser\Commands\TestCommand.cs" />
     <Compile Include="Parser\Parser.cs" />
