@@ -14,7 +14,7 @@ namespace Strawberrey.CLI
     public static bool Implements(this Type type, Type interfaceType)
     {
       Debug.Assert(type != null);
-      Debug.Assert(type.IsInterface);
+      Debug.Assert(interfaceType.IsInterface);
 
       return type.GetInterfaces().Contains(interfaceType);
     }

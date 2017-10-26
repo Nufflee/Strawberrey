@@ -25,10 +25,11 @@ namespace Strawberrey.CLI
       if (args.Length == 0)
       {
         command = CreateCommand(typeof(InfoCommand));
-        return;
       }
-
-      command = GetCommand(args[0]);
+      else
+      {
+        command = GetCommand(args[0]);
+      }
 
       command?.Run(args, runner);
     }
