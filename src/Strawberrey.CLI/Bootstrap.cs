@@ -1,6 +1,7 @@
-﻿using System.IO;
+﻿using System;
 using System.Net;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 
 namespace Strawberrey.CLI
 {
@@ -20,20 +21,14 @@ namespace Strawberrey.CLI
 
     private static async Task<Configuration> GetConfiguration()
     {
-      HttpWebRequest request = (HttpWebRequest) WebRequest.Create("http://localhost:5000/api/version");
-
-      using (HttpWebResponse response = (HttpWebResponse) request.GetResponse())
-      using (Stream stream = response.GetResponseStream())
-      using (StreamReader reader = new StreamReader(stream))
+      string json;
+      
+      using (WebClient client = new WebClient())
       {
-        var c = "";
-        for (int i = 0; i < 100; i++)
-        {
-          c = reader.ReadToEnd();
-        }
+        json = await client.DownloadStringTaskAsync(new Uri("http://localhost:5000/api/configuration"));
       }
 
-      return configuration;
+      return JsonConvert.DeserializeObject<Configuration>(json);
     }
   }
 }

@@ -28,7 +28,12 @@ namespace Strawberrey.API
         app.UseDeveloperExceptionPage();
       }
 
-      app.UseMvc();
+      app.UseMvc((routes) =>
+      {
+        routes.MapWebApiRoute(
+          name: "default",
+          template: "{controller=Home}/{action=Index}");
+      });
     }
   }
 }
